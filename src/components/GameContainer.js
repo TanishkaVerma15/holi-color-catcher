@@ -72,13 +72,27 @@ export default function GameContainer() {
 
   // Touch control
   useEffect(() => {
-    const handleTouch = (e) => {
-      const touchX = e.touches[0].clientX - containerRef.current.getBoundingClientRect().left;
-      setPlayerPos(Math.min(Math.max(touchX - bucketWidth / 2, 0), containerWidth - bucketWidth));
-    };
-    containerRef.current?.addEventListener("touchmove", handleTouch);
-    return () => containerRef.current?.removeEventListener("touchmove", handleTouch);
-  }, []);
+  const container = containerRef.current;
+  if (!container) return;
+
+  const handleTouch = (e) => {
+    const rect = container.getBoundingClientRect();
+    const touchX = e.touches[0].clientX - rect.left;
+
+    setPlayerPos(
+      Math.min(
+        Math.max(touchX - bucketWidth / 2, 0),
+        containerWidth - bucketWidth
+      )
+    );
+  };
+
+  container.addEventListener("touchmove", handleTouch);
+
+  return () => {
+    container.removeEventListener("touchmove", handleTouch);
+  };
+}, []);
 
   const triggerConfetti = useCallback(() => {
     confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
