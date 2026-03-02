@@ -301,22 +301,29 @@ export default function GameContainer() {
               Restart
             </Button>
             <Button
-              variant="info"
-              onClick={() => {
-                const shareUrl = `https://tanishka-holi-game.vercel.app`;
-                window.open(shareUrl, "_blank");
-              }}
-              style={{
-                fontWeight: "bold",
-                color: "#fff",
-                textShadow: "1px 1px 2px #8338ec",
-                transition: "transform 0.2s"
-              }}
-              onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-              onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-            >
-              Share on LinkedIn
-            </Button>
+  variant="info"
+  onClick={() => {
+    const gameUrl = "https://holi-color-catcher-61js.vercel.app"; 
+    const shareText = encodeURIComponent(
+      `I just played Spectrum Catcher 🌈🎉 Try it and beat my score! #HappyHoli #ReactJS`
+    );
+
+    const linkedInUrl =
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(gameUrl)}&title=${shareText}`;
+
+    window.open(linkedInUrl, "_blank");
+  }}
+  style={{
+    fontWeight: "bold",
+    color: "#fff",
+    textShadow: "1px 1px 2px #8338ec",
+    transition: "transform 0.2s"
+  }}
+  onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
+  onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+>
+  Share on LinkedIn
+</Button>
             <Button
               variant="danger"
               onClick={() => window.location.reload()}
