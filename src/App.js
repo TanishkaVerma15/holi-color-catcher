@@ -13,7 +13,7 @@ function App() {
         <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "100vh", zIndex: 2, position: "relative" }}>
           <h1 style={{ color: "#fd1ec2", fontFamily: "cursive", fontSize: "3rem" }}>Throw colors🌸💜, spread smiles🕊️🌈, celebrate life😄🎉
             !"Happy Holi!"💛🎨</h1>
-          <p style={{ fontSize: "1.5rem", color: "#fc1414" }}>Get ready to catch the colors with..
+          <p style={{ fontSize: "1.5rem", color: "#fc1414" }}>Get ready to catch the colors with.
                                                                 <b>S P E C T R U M - C A T C H E R! </b>🌈</p>
           <button
             className="btn btn-lg btn-warning mt-4"
